@@ -1,0 +1,121 @@
+/* Responsive Design */
+body{
+  padding: 100px;
+}
+.container {
+  background-color: #faf5f1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.chart-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.chart-heading h1 {
+  font-size: clamp(20px, 4vw, 30px);
+  font-weight: bold;
+  color: #333;
+}
+.chart-heading p {
+  font-size: clamp(14px, 3vw, 20px);
+  color: #666;
+}
+.chart-and-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.chart {
+  flex: 1;
+  min-width: 300px;
+  height: clamp(300px, 50vh, 500px);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 20%,
+    rgba(0, 0, 0, 0.05) 20%,
+    rgba(61, 57, 57, 0.05) 25%,
+    transparent 25%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(0, 0, 0, 0.05) 45%,
+    transparent 45%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.05) 60%,
+    rgba(0, 0, 0, 0.05) 65%,
+    transparent 65%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.05) 80%,
+    rgba(0, 0, 0, 0.05) 85%,
+    transparent 85%
+  );
+}
+.data-table {
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  overflow-x: auto;
+}
+.data-table h3 {
+  font-size: clamp(16px, 3vw, 18px);
+  margin-bottom: 15px;
+  color: #333;
+}
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 250px;
+}
+.data-table th,
+.data-table td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: clamp(12px, 2vw, 16px);
+}
+.data-table th {
+  font-weight: 600;
+  background-color: #f0f0f0;
+  color: #666;
+}
+.data-table td {
+  color: #333;
+}
+.data-table tr:hover {
+  background-color: #f5f5f5;
+}
+.vertical-line {
+  width: 1px;
+  background-color: #000;
+  height: auto;
+  min-height: 400px;
+} /* Media Queries */
+@media (max-width: 768px) {
+  .chart-and-table {
+    flex-direction: column;
+    align-items: center;
+  }
+  .vertical-line {
+    display: none;
+  }
+  .chart,
+  .data-table {
+    max-width: 100%;
+    width: 100%;
+  }
+  .chart {
+    height: 350px;
+  }
+}
+@media (max-width: 480px) {
+  .chart {
+    height: 250px;
+  }
+  .data-table table {
+    font-size: 12px;
+  }
+}

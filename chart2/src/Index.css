@@ -32,7 +32,7 @@ body{
 .chart {
   flex: 1;
   min-width: 300px;
-  height: clamp(300px, 50vh, 500px);
+  height: clamp(300px, 48vh, 600px);
   background: linear-gradient(
     to right,
     transparent 0%,

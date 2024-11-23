@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
-import './Index.css';
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import * as echarts from "echarts";
+import "./index.css";
 
 const IrrChart = () => {
   const chartRef = useRef(null);
@@ -12,116 +14,173 @@ const IrrChart = () => {
 
     const option = {
       tooltip: {
-        trigger: 'axis',
+        trigger: "axis",
         formatter: function (params) {
-          return params.map((item) => `${item.seriesName}: ${item.value}%`).join('<br/>');
+          return params
+            .map((item) => `${item.seriesName}: ${item.value}%`)
+            .join("<br/>");
         },
       },
       legend: {
-        data: ['2017', '2018', '2019', '2020', '2021', '2022'],
+        data: ["2017", "2018", "2019", "2020", "2021", "2022"],
         top: 60,
       },
       grid: {
-        left: '10%',
-        right: '10%',
-        top: '15%',
-        bottom: '10%',
+        left: "8%", 
+        right: "1%",
+        top: "5%",
+        bottom: "15%",
       },
       xAxis: {
-        type: 'category',
-        name: 'Quarters since vintage inception',
-        nameLocation: 'middle',
-        nameGap: 30,
+        type: "category",
+        name: "Quarters since vintage inception",
+        nameLocation: "middle",
+        nameGap: 40, // Increased gap for better spacing
         data: Array.from({ length: 29 }, (_, i) => i),
-        axisLine: {
-          show: true,
+        axisLine: { show: true },
+        axisLabel: {
+          fontSize: 14, 
+          interval: 0, 
         },
       },
       yAxis: {
-        type: 'value',
-        name: 'Median IRR by vintage overtime',
-        nameGap: 35,
+        type: "value",
+        name: "Median IRR by vintage overtime",
+        nameGap: 50, // Increased gap for the yAxis title
         nameTextStyle: {
-          padding: [0, 0, 0, 600],
-          align: 'center',
-          fontSize: 15,
+          fontSize: 18, // Larger font for emphasis
         },
         axisLabel: {
-          formatter: '{value}%',
-          interval: 1,
-        },
-        axisTick: {
-          interval: 1,  
-        },
+          fontSize: 14, // Larger label font size
+          formatter: "{value}%",
+        },interval: 5,
         splitLine: {
           show: true,
-          lineStyle: {
-            type: 'dashed',
-          },
-          min: 0,
-          max: 30,
-          axisLabel: {
-            formatter: function (value) {
-              return value + '%';
-            },
-          },
-          splitNumber: 6,
+          lineStyle: { type: "dashed" },
         },
+        axisLine: { show: true },
       },
       series: [
         {
-          name: '2017',
-          type: 'line',
-          data: [null, null, null, null, null, null, null, null, null, null, 0, 0, 2, 5, 8, 12, 15, 21, 22, 21, 19, 17, 16, 15, 14],
+          type: "line",
+          data: [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            0,
+            2,
+            5,
+            8,
+            12,
+            15,
+            23,
+            21,
+            22,
+            19,
+            18.5,
+            18.5,
+            16.8,
+            16.5,
+            16.4,
+            16.3,
+            16.1,
+          ],
           lineStyle: { width: 2 },
-          color: '#FFA500',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#FFA500",
+          endLabel: {
+            show: true,
+            formatter: "2017",
+            color: "#FFA500",
+          },
         },
         {
-          name: '2018',
-          type: 'line',
-          data: [null, null, null, null, null, 0, 0, 1, 3, 6, 10, 15, 18, 22, 24, 20, 17, 15, 13, 11, 10],
+          type: "line",
+          data: [
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            0,
+            0,
+            0,
+            1,
+            3,
+            6,
+            5,
+            24,
+            23,
+            22,
+            20,
+            19.5,
+            18.5,
+            17.5,
+            15.5,
+            15.3,
+          ],
           lineStyle: { width: 2 },
-          color: '#8B4513',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#8B4513",
+          endLabel: {
+            show: true,
+            formatter: "2018",
+            color: "#8B4513",
+          },
         },
         {
-          name: '2019',
-          type: 'line',
-          data: [0, 0, 0, 0, 0, 0, 0, 14, 14, 15, 20, 17, 15, 13, 11, 9, 8],
+          type: "line",
+          data: [
+            0, 0, 0, 0, 0, 0, 0, 1, 15, 14, 12, 13.5, 11, 10.8, 10.7, 10.6, 9.5,
+            8.5, 8.3,
+          ],
           lineStyle: { width: 2 },
-          color: '#1E90FF',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#1E90FF",
+          endLabel: {
+            show: true,
+            formatter: "2019",
+            color: "#1E90FF",
+          },
         },
         {
-          name: '2020',
-          type: 'line',
-          data: [0, 0, -1, -2, 0, 2, 4, 5, 6, 5, 4, 4],
+          type: "line",
+          data: [0, 0, -1, -2, 0, 11, 10, 11, 8, 7, 6, 5, 4],
           lineStyle: { width: 2 },
-          color: '#000080',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#000080",
+          endLabel: {
+            show: true,
+            formatter: "2020",
+            color: "#000080",
+          },
         },
         {
-          name: '2021',
-          type: 'line',
-          data: [-2, -5, -8, -7, -4, -2, -1, 0],
+          type: "line",
+          data: [-2, -5, -3, -7, -6, -5, -3, -4, -3.5, -3.4, -3.2, -3.1],
           lineStyle: { width: 2 },
-          color: '#4169E1',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#4169E1",
+          endLabel: {
+            show: true,
+            formatter: "2021",
+            color: "#4169E1",
+          },
         },
         {
-          name: '2022',
-          type: 'line',
-          data: [-11, -15, -15, -12, -9, -6, -4],
+          type: "line",
+          data: [-11, -15, -14, -15, -11, -8, -7, -6, -5],
           lineStyle: { width: 2 },
-          color: '#000000',
-          animationDuration: 2000,
-          animationDelay: (idx) => idx * 100,
+          color: "#000000",
+          endLabel: {
+            show: true,
+            formatter: "2022",
+            color: "#000000",
+          },
         },
       ],
     };
@@ -131,20 +190,22 @@ const IrrChart = () => {
     const handleResize = () => {
       chart.resize();
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       chart.dispose();
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <div className="container">
-      {/* Title and Subtext as Heading Above Both Chart and Data Table */}
       <div className="chart-heading">
         <h1>Median IRR in vintage year 2021 trails earlier vintages</h1>
-        <p>Median net IRR by vintage year by quarters since inception | Vintage years 2017-2022 | Data as of Q1 2024</p>
+        <p>
+          Median net IRR by vintage year by quarters since inception | Vintage
+          years 2017-2022 | Data as of Q1 2024
+        </p>
       </div>
       <div className="chart-and-table">
         <div className="chart" ref={chartRef}></div>

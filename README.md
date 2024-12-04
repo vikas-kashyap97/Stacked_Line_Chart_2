@@ -37,8 +37,8 @@ This project is built using the following tools:
 ### Steps
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/chart2.git
-   cd chart2
+   git clone https://github.com/vikas-kashyap97/Stacked_Line_Chart_2.git
+   cd Stacked_Line_Chart_2
 2. **Install dependencies**:
    ```bash
    npm install

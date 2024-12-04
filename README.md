@@ -42,9 +42,7 @@ This project is built using the following tools:
 2. **Install dependencies**:
    ```bash
    npm install
-   ```bash
 3. **Run the development server**:
    ```bash
    npm run dev
-   ```bash
 

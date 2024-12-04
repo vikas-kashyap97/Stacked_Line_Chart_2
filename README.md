@@ -2,7 +2,8 @@
 
 This project visualizes the **Median Internal Rate of Return (IRR)** across vintage years (2017–2022) using an interactive and responsive chart. Built with modern tools like React and ECharts, this project is designed to analyze and present data on investment performance over time.
 
-![Chart Preview](https://apache-echart2.netlify.app/)  
+![Chart Preview](![image](https://github.com/user-attachments/assets/a486ba7e-5576-4d75-9e72-b1cc1a38167e)
+)  
 **[Live Demo](https://apache-echart2.netlify.app/)**
 
 ---
